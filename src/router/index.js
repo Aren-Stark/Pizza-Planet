@@ -6,6 +6,7 @@ import Menu from '../views/MenuView.vue'
 import Delivery from '../components/Delivery.vue'
 import History from '../components/History.vue'
 import Locations from '../components/Locations.vue'
+import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,7 +30,7 @@ const router = createRouter({
           path: 'locations',
           name: 'locationsLink',
           component: Locations
-        },
+        }
       ]
     },
     {
@@ -40,7 +41,11 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      components:{
+        default: HomeView,
+        delivery: Delivery,
+        history: History,
+      }
     },
     {
       path: '/menu',
